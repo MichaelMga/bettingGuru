@@ -4,8 +4,6 @@
   require 'apiController.php';
 
 
-
-
 function seeOneChampionship($championshipId){
      
     //I WANT TO AVOID API CALLS. SO I'LL MINIMIZE ANY CALL I CAN.
@@ -32,29 +30,273 @@ function seeOneChampionship($championshipId){
 
 function seeOneGame($gameId){
 
-  //USING THE GAME ID, GET THE HOME TEAM, AND THE AWAY TEAM
 
-    
-  $game = json_decode(json_decode(getGame($gameId), true));
+
+  /*
+  
+   $game = json_decode(getGame($gameId), true);
+  
+   echo $game;
+
+
+  */
+
   
 
- echo $game->{"api"}->{"fixtures"}[0]->{"fixture_id"};
+  //USING THE GAME ID, GET THE HOME TEAM, AND THE AWAY TEAM
+
+  
+    
+  $game = json_decode(json_decode(getGame($gameId), true));
 
  
 
 
 
- /*
-
- {"api":{"results":1,"fixtures":[{"fixture_id":571577,"league_id":2664,"league":{"name":"Ligue 1","country":"France","logo":"https:\/\/media.api-sports.io\/football\/leagues\/61.png","flag":"https:\/\/media.api-sports.io\/flags\/fr.svg"},"event_date":"2020-11-20T20:00:00+00:00","event_timestamp":1605902400,"firstHalfStart":null,"secondHalfStart":null,"round":"Regular Season - 11","status":"Not Started","statusShort":"NS","elapsed":0,"venue":"Stade Louis II","referee":null,"homeTeam":{"team_id":91,"team_name":"Monaco","logo":"https:\/\/media.api-sports.io\/football\/teams\/91.png"},"awayTeam":{"team_id":85,"team_name":"Paris Saint Germain","logo":"https:\/\/media.api-sports.io\/football\/teams\/85.png"},"goalsHomeTeam":null,"goalsAwayTeam":null,"score":{"halftime":null,"fulltime":null,"extratime":null,"penalty":null},"events":null,"lineups":null,"statistics":null,"players":null}]}}
+ //TEAMS ID
 
 
 
- */
-  //require(' ../../views/templates/oneGame.php');
 
 
-}
+      
+
+      //TEAMS OBJECTS
+                    
+         
+      $homeTeam = $game->{"api"}->{"fixtures"}[0]->{"homeTeam"};
+      $awayTeam = $game->{"api"}->{"fixtures"}[0]->{"awayTeam"};
+
+
+
+
+      $playingTeams = [$homeTeam, $awayTeam];
+
+
+
+
+      //TEAMS IDs
+
+
+      $homeTeamId;
+      $awayTeamId;
+
+
+
+
+
+   //NAMES
+
+
+
+       $homeTeamName;
+       $awayTeamName;
+
+
+
+
+    //GOALS
+
+
+
+    
+      $homeTeamAvgGoalsFor;
+      $homeTeamAvgGoalsAgainst;
+
+
+      $awayTeamAvgGoalsFor;
+      $awayTeamAvgGoalsAgainst;
+
+
+
+
+      //VARIABLES USED IN THE LOOP
+  
+       $goalsScored;
+
+       $sumOfDeviations;
+
+       $deviation;
+
+
+       $homeTeamStandardDeviation;
+
+       $awayTeamStandardDeviation;
+
+
+
+
+
+
+
+
+
+       //CREATE ALL THE VARIABLES WE WILL NEED IN THE VIEW , FOR EACH TEAM
+
+  
+     forEach($playingTeams as $team){
+
+ 
+        $sumOfDeviations = 0;
+
+
+
+        $teamId = $team->{"team_id"};
+
+  
+        $teamName = $team->{"team_name"};
+
+        $teamStats =  json_decode(json_decode(getTeamStats(ligue1Id, $teamId)))->{"api"}->{"statistics"};
+
+
+
+        $teamAvgGoalsFor = $teamStats->{"goalsAvg"}->{"goalsFor"}->{"total"};
+
+        $teamAvgGoalsAgainst = $teamStats->{"goalsAvg"}->{"goalsAgainst"}->{"total"};
+
+
+
+        $teamGamesArray = json_decode(json_decode(getTeamFixtures(ligue1Id , $teamId)))->{"api"}->{"fixtures"}; 
+
+
+
+
+
+
+          //CREATE THE TEAMS VARIABLES
+
+
+          
+          if($team == $homeTeam){
+            
+               $homeTeamId = $teamId;
+
+               $homeTeamName = $teamName;
+
+
+               $homeTeamStats = $teamStats;
+
+               $homeTeamAvgGoalsFor = $teamAvgGoalsFor;
+
+               $homeTeamAvgGoalsAgainst = $teamAvgGoalsAgainst;
+
+
+          } else {
+
+              $awayTeamId = $teamId;
+
+              $awayTeamName = $teamName;
+
+              $awayTeamStats = $teamStats;
+
+              $awayTeamAvgGoalsFor = $teamAvgGoalsFor;
+
+              $awayTeamAvgGoalsAgainst = $teamAvgGoalsAgainst;
+
+          }
+
+
+
+          //STANDARD DEVIATION
+
+
+                   
+                   //LOOP ON ALL THE TEAMS GAME, EXTRACT EACH GOALS FOR , TO CALCULATE THE STANDARD DEVIATION OF GOALS FOR
+
+
+         foreach($teamGamesArray as $playedGame){
+
+               //CHECK FOR EACH GAME , IF THE PLAYER WE CHECK PLAYS AT HOME OR AWAY
+               
+ 
+            if($playedGame->{"homeTeam"}->{"team_name"} == $teamName){   
+
+
+              //CREATION OF VARIABLES
+
+
+              //LOCAL VARIABLE USED AT EACH GAME OF THE TEAM WE'RE LOOPING ON
+                        
+              $goalsScored = $playedGame->{"goalsHomeTeam"};
+              
+
+
+            } else {
+
+
+
+             //CREATION OF VARIABLES
+
+
+  
+              $goalsScored = $playedGame->{"goalsAwayTeam"};
+
+
+        } 
+
+ 
+
+        $deviation = $goalsScored - $teamAvgGoalsFor;
+
+        $sumOfDeviations += pow( $deviation , 2);
+
+
+        //END OF GAMES ARRAY LOOP
+
+   
+     }
+
+
+        $standardDeviation =  sqrt(($sumOfDeviations/count($teamGamesArray)));
+
+
+      if($team == $homeTeam){
+
+          $homeTeamStandardDeviation = $standardDeviation;
+
+
+        } else {
+
+          $awayTeamStandardDeviation = $standardDeviation;
+
+        }
+
+
+
+        echo 'for the team ' . $teamName . ' the standard deviation is : ' .  $standardDeviation ;
+
+        echo ' <br> The average goals for is : ' . $teamAvgGoalsFor;
+
+        echo ' <br> The average goals against is : ' . $teamAvgGoalsAgainst;
+
+
+
+
+   }
+
+
+
+
+   $adjustedHomeTeamGoals = number_format(sqrt( $homeTeamAvgGoalsFor * $awayTeamAvgGoalsAgainst) , 2 , '.' , ',');
+
+   $adjustedAwayTeamGoals = number_format(sqrt($awayTeamAvgGoalsFor * $homeTeamAvgGoalsAgainst) , 2 , '.' , ',' ); 
+
+
+
+  
+   
+
+      require(' ../../views/templates/oneGame.php');
+
+      
+  
+ }
+     
+
+ 
+
+
+
 
 
 

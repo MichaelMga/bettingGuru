@@ -2,6 +2,8 @@
 
 require 'db/connexion.php';
 
+require 'const.php';
+
 require 'controllers/leaguesController.php';
 
 
