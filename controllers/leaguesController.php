@@ -4,25 +4,18 @@
   require 'apiController.php';
 
 
+
 function seeOneChampionship($championshipId){
      
     //I WANT TO AVOID API CALLS. SO I'LL MINIMIZE ANY CALL I CAN.
-
     
-    $championshipName = 'ligue 1';
+    $championshipName = getChampionshipName($championshipId);
 
-    $games = 'liste des matchs de ' . $championshipName ;
-
-    $currentWeek = getCurrentWeek($championshipId);
+    $currentWeek = json_decode(json_decode(getCurrentWeek($championshipId)))->{"api"}->{"fixtures"}[0];
     
-    $weeklyGames = getWeeklyGames('Regular_Season_-_11'); 
-
-
-
-    $championshipName = 'ligue1';
+    $weeklyGames = getWeeklyGames($championshipId, $currentWeek); 
 
     require(' ../../views/templates/allGames.php');
-
 
 }
 
@@ -50,13 +43,18 @@ function seeOneGame($gameId){
   $game = json_decode(json_decode(getGame($gameId), true));
 
  
+ 
+      //League ID
+
+
+      $leagueId = $game->{"api"}->{"fixtures"}[0]->{"league_id"};
 
 
 
- //TEAMS ID
+      //TEAMS ID
 
 
-
+      
 
 
       
@@ -72,6 +70,9 @@ function seeOneGame($gameId){
 
       $playingTeams = [$homeTeam, $awayTeam];
 
+
+
+      
 
 
 
@@ -146,7 +147,7 @@ function seeOneGame($gameId){
   
         $teamName = $team->{"team_name"};
 
-        $teamStats =  json_decode(json_decode(getTeamStats(ligue1Id, $teamId)))->{"api"}->{"statistics"};
+        $teamStats =  json_decode(json_decode(getTeamStats( $leagueId , $teamId)))->{"api"}->{"statistics"};
 
 
 
@@ -156,7 +157,7 @@ function seeOneGame($gameId){
 
 
 
-        $teamGamesArray = json_decode(json_decode(getTeamFixtures(ligue1Id , $teamId)))->{"api"}->{"fixtures"}; 
+        $teamGamesArray = json_decode(json_decode(getTeamFixtures($leagueId , $teamId)))->{"api"}->{"fixtures"}; 
 
 
 

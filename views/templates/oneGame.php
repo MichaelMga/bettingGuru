@@ -19,8 +19,6 @@
 
 
 
-
-
 <h1>Stats équipe à l'extérieur : </h1>
 
 
@@ -128,7 +126,6 @@
 
 
         
-
 
       }
 

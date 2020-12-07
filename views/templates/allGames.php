@@ -1,11 +1,19 @@
 
-<h1><?php echo $games; ?></h1>
+
+<?php
+
+  //collect the get request used to arrive on this page (championship id)
+
+      $championshipId = $_GET["championshipId"];
 
 
+  ?>
 
-<h1>Ligue1</h1>
 
 <h3>Semaine : <span id='weekSpan'></span> </h3>
+
+
+<h3>Liste des matchs de <?php echo $championshipName ?></h3> 
 
 
 <h5>Games</h5>
@@ -20,7 +28,7 @@
 <script>
     
 
-    var dir = "http://localhost/bettingguru/" + "<?php echo $championshipName ?>";
+    var dir = "http://localhost/bettingguru" + "?championshipId=" + "<?php echo $championshipId ?>";
 
 
     var gameListDiv = document.getElementById('gameListDiv');
@@ -28,9 +36,9 @@
 
     var weekSpan = document.getElementById('weekSpan');
 
-    var currentWeek = JSON.parse(<?php echo $currentWeek ?>).api.fixtures;
+    //var currentWeek = JSON.parse(<?php echo $currentWeek ?>);
 
-    var currentGames =   JSON.parse(<?php echo $weeklyGames ?>).api.fixtures;
+    var currentGames =  JSON.parse(<?php echo $weeklyGames ?>).api.fixtures;
 
     console.log(currentGames);
 
@@ -56,7 +64,7 @@
         
         let a = document.createElement('a');
 
-        a.setAttribute('href', dir + '?gameId=' + currentGames[gameIndex].fixture_id);
+        a.setAttribute('href', dir + '&gameId=' + currentGames[gameIndex].fixture_id);
 
         a.append(gameLink);
 
@@ -69,7 +77,7 @@
     }
 
 
-    weekSpan.innerHTML = currentWeek;
+    //weekSpan.innerHTML = currentWeek;
 
 
 

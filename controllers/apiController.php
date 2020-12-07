@@ -49,8 +49,27 @@
 	}
 	
   }
+  
 
 
+
+
+  function getChampionshipName($championshipId){
+
+
+	  $leagueData = getData("leagues/league/" . $championshipId);
+
+	  
+	  //equivalent of : $leagueData->api->leagues[0]->name (but , particular notation for handling this data)
+
+
+	  $name = json_decode(json_decode($leagueData));
+	  
+
+	  return $name->{"api"}->{"leagues"}[0]->{"name"};
+
+
+  }
 
   function getCurrentWeek($championshipId){
 	  
@@ -61,9 +80,9 @@
 
 
 
-  function getWeeklyGames($currentWeek){
+  function getWeeklyGames($championshipId, $currentWeek){
 	
-	return getData("fixtures/league/2664/" . $currentWeek);
+	return getData("fixtures/league/" . $championshipId . "/" . $currentWeek);
 
   }
  

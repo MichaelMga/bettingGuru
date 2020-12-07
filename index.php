@@ -1,10 +1,13 @@
 <?php
 
-require 'db/connexion.php';
+require_once 'db/connexion.php';
 
-require 'const.php';
+require_once 'const.php';
 
-require 'controllers/leaguesController.php';
+require_once 'controllers/leaguesController.php';
+
+
+require_once 'views/header.php';
 
 
 
@@ -17,6 +20,7 @@ $root = '/bettingguru/';
 
 
 
+
 switch ($request) {
     case $root :
         require __DIR__ . '/views/index.php';
@@ -24,13 +28,14 @@ switch ($request) {
     case '' :
         require __DIR__ . '/views/index.php';
         break;
-    case $root . 'ligue1' :
 
-        seeOneChampionship('2664');
+    case $root . "?championshipId=" . $_GET["championshipId"];
 
+        seeOneChampionship($_GET["championshipId"]);
         break;
     
-    case $root . 'ligue1' . '?gameId=' . $_GET['gameId'];
+
+    case $root . "?championshipId=" . $_GET['championshipId'] . '&gameId=' . $_GET['gameId'];
 
         seeOneGame($_GET['gameId']);
 
