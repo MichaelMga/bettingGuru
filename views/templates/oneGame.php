@@ -35,6 +35,16 @@
 
 <script>
 
+  var homeTeamScore;
+
+  var awayTeamScore;
+
+  var draws = 0;
+
+  var homeTeamVictories = 0;
+
+  var awayTeamVictories = 0;
+
    //DOM VARS
 
   var homeTeamHTML = document.getElementById('homeTeamHTML') ;
@@ -118,18 +128,38 @@
 
         console.log( 'here is a game simulation Angers/Lyon. ' + '<br>');
 
-        console.log( "<?php echo $homeTeamName ?>"  +  ' : ' + jStat.normal.inv( Math.random() , adjustedHomeTeamGoals , homeTeamStandardDeviation  ));
+        homeTeamScore = Math.floor(jStat.normal.inv( Math.random() , adjustedHomeTeamGoals , homeTeamStandardDeviation  ));
+        awayTeamScore = Math.floor(jStat.normal.inv( Math.random() , adjustedAwayTeamGoals , awayTeamStandardDeviation  ));
+
+        console.log( "<?php echo $homeTeamName ?>"  +  ' : ' + homeTeamScore);
 
         console.log( '<br>');
 
-        console.log( "<?php echo $awayTeamName ?>"  +  ' : ' + jStat.normal.inv( Math.random() , adjustedAwayTeamGoals , awayTeamStandardDeviation  ));
-
+        console.log( "<?php echo $awayTeamName ?>"  +  ' : ' + awayTeamScore );
 
         
+        if(homeTeamScore == awayTeamScore){
 
+           draws++;
+
+
+        } else if(homeTeamScore > awayTeamScore) {
+
+           homeTeamVictories++;
+
+        } else {
+
+         awayTeamVictories++;
+
+        }
+
+
+   
       }
 
-        
+      alert('home team odd=> ' + (100/ ((homeTeamVictories/10000) * 100)) );
+      alert('away team odd=> ' + (100/ ((awayTeamVictories/10000) * 100)) );
+      alert('draw team odd=> ' + (100/ ((draws/10000 * 100)) ));
 
 
 
