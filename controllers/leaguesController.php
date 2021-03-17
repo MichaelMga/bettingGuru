@@ -263,16 +263,6 @@ function seeOneGame($gameId){
         }
 
 
-
-        echo 'for the team ' . $teamName . ' the standard deviation is : ' .  $standardDeviation ;
-
-        echo ' <br> The average goals for is : ' . $teamAvgGoalsFor;
-
-        echo ' <br> The average goals against is : ' . $teamAvgGoalsAgainst;
-
-
-
-
    }
 
 

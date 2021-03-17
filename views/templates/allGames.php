@@ -45,7 +45,7 @@
  
     for(gameIndex = 0; gameIndex < currentGames.length; gameIndex++){
         
-     let gameDiv = document.createElement('div');
+      var gameDiv = document.createElement('div');
          
 
         gameDiv.innerHTML += (currentGames[gameIndex].homeTeam.team_name);
@@ -55,14 +55,14 @@
         gameDiv.innerHTML += (currentGames[gameIndex].awayTeam.team_name);
 
 
-        let gameLink = document.createElement('button');
+        var gameLink = document.createElement('button');
 
         gameLink.setAttribute('onclick', "triggerController()");
 
         gameLink.innerHTML = 'get the odds for this game';
 
         
-        let a = document.createElement('a');
+        var a = document.createElement('a');
 
         a.setAttribute('href', dir + '&gameId=' + currentGames[gameIndex].fixture_id);
 
