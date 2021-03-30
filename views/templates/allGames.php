@@ -43,7 +43,10 @@
 
   </div>
 
-  <div id='championshipInfoDivAB'></div>
+  <div id='championshipInfoDivAB'>
+   9th
+
+  </div>
 </div>
 <div id='championshipInfoDivA'>
   <div id='championshipInfoDivAA'>
@@ -52,6 +55,8 @@
   </div>
 
   <div id='championshipInfoDivAB'>
+    2.47 goals/game
+
   </div>
 </div>     	
 
@@ -61,7 +66,11 @@
 
   </div>
 
-  <div id='championshipInfoDivAB'>	</div>
+  <div id='championshipInfoDivAB'>
+  1st: Lille
+
+  
+  	</div>
 </div>
 
    <div id='championshipInfoDivA'>
@@ -71,7 +80,7 @@
   </div>
 
   <div id='championshipInfoDivAB'>
-    Top Attack : Lille 
+    1st scorers : Lille 
 
   </div>
 </div>
@@ -84,7 +93,7 @@
   </div>
 
   <div id='championshipInfoDivAB'>
-    Top defense : Lille
+  1st defense : Lille 
   </div>
 </div>
 

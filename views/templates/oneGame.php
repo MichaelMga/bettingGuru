@@ -137,7 +137,7 @@ body {
 
      .teamLogoImg{
 
-         height:70%;
+         height:85%;
          width:auto
      }
 
@@ -147,77 +147,12 @@ body {
 
 
 
-
-
-     .teamLogoB{
-         height:15%;
-         width:100%;
-         display:flex;
-         justify-content:center;
-         align-items:center;
-     }
-
-     .teamLogoBA{  
-
-         height:100%;
-         width:100%;
-         background:rgb(255,255,255,0.05);
-         display:flex;
-         flex-direction:column;
-         align-items:center;
-         justify-content: space-around;
-         border-radius:5px;
-        
-
-     }
-
-     .teamLogoBAA{
-
-         height:35%;
-         width:90%;
-         display:flex;
-         flex-direction:row;
-         align-items:center;
-         justify-content:space-between;
-
-     }
-
-
-     .teamLogoBAAA{
-
-         height:90%;
-         width:20%;
-         display:flex;
-         justify-content:center;
-         align-items:center;
-
-     }
-
      .positionImg{
          height:80%;
          width:auto;
      }
 
-     
-     .teamLogoBAAB{
-
-         height:90%;
-         width:20%;
-         display:flex;
-         justify-content:center;
-         align-items:center;
-     }
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
      #rightDivBottom{
@@ -454,23 +389,7 @@ body {
                           <img class='teamLogoImg' src="<?php echo $homeTeamLogo ?>">                      
 
                      </div>
-                     
-                     <div class='teamLogoB'>                           
-                          <div class='teamLogoBA'>
-                             <div class='teamLogoBAA'>
-                                  <div class='teamLogoBAAA'>
-                                  </div>
-                                  <div class='teamLogoBAAB'>
-                                  </div>
-                             </div>
-                             <div class='teamLogoBAA'>
-                                  <div class='teamLogoBAAA'>
-                                  </div>
-                                  <div class='teamLogoBAAB'>
-                                  </div>
-                             </div>
-                          </div>
-                     </div>
+             
               </div>
 
               <div class='teamLogo'>     
@@ -479,12 +398,7 @@ body {
                           <img class='teamLogoImg' src="<?php echo $awayTeamLogo ?>"">                      
                      </div>
                      
-                     <div class='teamLogoB'>                          
-                        <div  class='teamLogoBA'>     
-                             <div class='teamLogoBAA'></div>
-                             <div class='teamLogoBAA'></div>
-                         </div>
-                     </div>
+                  
               
               
               </div>
