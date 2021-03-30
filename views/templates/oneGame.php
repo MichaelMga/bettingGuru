@@ -451,7 +451,7 @@ body {
               <div class='teamLogo'>
                      <div class='teamLogoA'>                          
                      
-                          <img class='teamLogoImg' style='height:92.5%; width:auto' src="img/psg.png">                      
+                          <img class='teamLogoImg' src="<?php echo $homeTeamLogo ?>">                      
 
                      </div>
                      
@@ -476,7 +476,7 @@ body {
               <div class='teamLogo'>     
               
                      <div class='teamLogoA'>     
-                          <img class='teamLogoImg' src="img/fcb.png">                      
+                          <img class='teamLogoImg' src="<?php echo $awayTeamLogo ?>"">                      
                      </div>
                      
                      <div class='teamLogoB'>                          

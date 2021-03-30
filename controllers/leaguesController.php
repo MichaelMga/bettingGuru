@@ -136,6 +136,7 @@ function seeOneGame($gameId){
 
   
      forEach($playingTeams as $team){
+       
 
  
         $sumOfDeviations = 0;
@@ -146,6 +147,11 @@ function seeOneGame($gameId){
 
   
         $teamName = $team->{"team_name"};
+
+
+        $teamLogo = $team->{"logo"};
+
+        
 
         $teamStats =  json_decode(json_decode(getTeamStats( $leagueId , $teamId)))->{"api"}->{"statistics"};
 
@@ -174,6 +180,7 @@ function seeOneGame($gameId){
 
                $homeTeamName = $teamName;
 
+               $homeTeamLogo = $teamLogo;
 
                $homeTeamStats = $teamStats;
 
@@ -187,6 +194,8 @@ function seeOneGame($gameId){
               $awayTeamId = $teamId;
 
               $awayTeamName = $teamName;
+
+              $awayTeamLogo = $teamLogo;
 
               $awayTeamStats = $teamStats;
 
@@ -271,6 +280,8 @@ function seeOneGame($gameId){
    $adjustedHomeTeamGoals = number_format(sqrt( $homeTeamAvgGoalsFor * $awayTeamAvgGoalsAgainst) , 2 , '.' , ',');
 
    $adjustedAwayTeamGoals = number_format(sqrt($awayTeamAvgGoalsFor * $homeTeamAvgGoalsAgainst) , 2 , '.' , ',' ); 
+
+
 
 
 
