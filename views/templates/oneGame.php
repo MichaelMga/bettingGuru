@@ -8,7 +8,7 @@ body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 11s ease infinite;
-    transition: 2s;
+    color: rgb(0,0,0,0.8);
 }
 
 @keyframes gradient {
@@ -308,7 +308,7 @@ body {
 
      .barContentAA{
          height:70%;
-         width:50%;
+         width:90%;
          align-items:center;
          justify-content:center;
          font-size: 0.85vw;
@@ -431,17 +431,76 @@ body {
 
 #backButton{
 
-    height: 15%;
+    height: 20%;
     width: 7%;
     background: rgb(255,255,255,0.15);
     position: absolute;
     top: 5%;
     left: 2%;
     border-radius: 7px;
+    display:none;
 
 }
 
 
+
+@media all and (max-width: 800px){
+
+   body{
+
+       font-size: 3vw;
+   }
+
+
+  .teamLogoImg{
+      height:77.5%;
+      width:auto%;
+  }
+
+  .barContentAA{
+
+      font-size:2vw;
+  }
+
+  
+  #rightDiv{
+   width: 95.5%;
+  }
+
+  #rightDiv{
+    margin-top: 15.5%;
+  }
+
+
+  .barContentAA{
+
+      width:90%;
+  }
+
+
+  #rightDivTop {
+    height: 40%;
+    margin-top: 20%;
+  }
+
+
+  .oddContainerInfo {
+  
+    left: 0; 
+    font-size: 2.05vw;
+
+  }
+
+  #backButton {
+    height: 15%;
+    width: 12.5%;
+    top: -25%;
+  }
+
+  .simulationSpan{
+     display:none;
+  }
+}
 
 
 
@@ -511,11 +570,11 @@ body {
                           <div class='barContent' id='rightDivBottom1AA'>
                                 <div class='barContentA'>
                                       <div class='barContentAA'>
-                                         avg.home goals for <span id='homeTeamAvgGoalSpan' style='opacity:0.7'>67%</style>
+                                         avg.home team goals for : <span id='homeTeamAvgGoalSpan' style='opacity:0.7'> <?php echo $homeTeamAvgGoalsFor ?></style>
                                       </div>
                                 </div>
                                 <div class='barContentB'>
-                                    <div class="barContentValueA">
+                                    <div class="barContentValueA" id='homeTeamAvgGoalContent'>
                                     </div>
                                 </div>
                           </div>
@@ -523,23 +582,23 @@ body {
                                 <div class='barContentA'>                                      
                                 
                                       <div class='barContentAA'>
-                                         avg.home goals for rate : <span id='homeTeamAvgHomeGoalSpan'> 1.5 </span> goal/game
+                                         avg.home team goals against : <span id='homeTeamAvgGoalAgainst'> <?php echo $homeTeamAvgGoalsAgainst ?> </span>
                                       </div>
 
                                 </div>
                                 <div class='barContentB'>
-                                   <div class="barContentValueB">
+                                   <div class="barContentValueB"  id='homeTeamAvgGoalAgainstContent'>
                                     </div>
                                 </div>
                           </div>
                           <div class='barContent' id='rightDivBottom1AC'>
                                 <div class='barContentA'>                                                 
                                     <div class='barContentAA'>
-                                        victory rate <span style='opacity:0.7'><span id='homeTeamVictoryRate'>35%</span></style>
+                                        Simulation victory rate : <span style='opacity:0.7'><span id='homeTeamVictoryRate'></span> <span class='simulationSpan'> (10 000 simulated games)</span>
                                     </div>
                                   </div>
                                   <div class='barContentB'>
-                                   <div class="barContentValueC">
+                                   <div class="barContentValueC"  id='homeTeamVictoryRateContent'>
                                     </div>
                                 </div>
                           </div>
@@ -551,35 +610,35 @@ body {
                                 
                                         <div class='barContentAA'>                                         
                                         
-                                            avg.possession <span style='opacity:0.7'><span id='awayTeamAvgGoalSpan'>35%</span></style>
+                                            away team avg.goals for : <span style='opacity:0.7'><span id='awayTeamAvgGoalSpan'><?php echo $awayTeamAvgGoalsFor ?></span></style>
 
                                         </div>
 
                                 </div>
                                 <div class='barContentB'>
-                                   <div class="barContentValueA">
+                                   <div class="barContentValueA" id='awayTeamAvgGoalContent'>
                                     </div>
                                 </div>
                           </div>
                           <div class='barContent' id='rightDivBottom1BB'>
                                 <div class='barContentA'>                                      
                                     <div class='barContentAA'>                                                
-                                          avg.goals scored : <span style='opacity:0.7'><span id='awayTeamAvgAwayGoalSpan'>35%</span>/game</style>
+                                       away team avg.goals against :  <span style='opacity:0.7'><span id='awayTeamAvgGoalSpan'><?php echo $awayTeamAvgGoalsAgainst ?></span>/game</style>
                                     </div>
                                 </div>
                                 <div class='barContentB'>
-                                   <div class="barContentValueB">
+                                   <div class="barContentValueB" id='awayTeamAvgGoalAgainstContent'>
                                     </div>
                                 </div>
                            </div>
                           <div class='barContent'id='rightDivBottom1BC'>
                                 <div class='barContentA'>                                     
                                         <div class='barContentAA'>                                       
-                                             victory rate <span style='opacity:0.7'> <span id='awayTeamVictoryRate'>35%</span></style>
+                                        Simulation victory rate : <span style='opacity:0.7'><span id='awayTeamVictoryRate'></span> <span class='simulationSpan'> (10 000 simulated games)</span>
                                         </div> 
                                   </div>
                                   <div class='barContentB'>
-                                   <div class="barContentValueC">
+                                   <div class="barContentValueC" id='awayTeamVictoryRateContent'>
                                     </div>
                                 </div> 
                           </div>
@@ -642,6 +701,7 @@ body {
 
 
 <script>
+
 
   var homeTeamScore;
 
@@ -737,9 +797,7 @@ body {
      //adjustedAwayTeamGoalsForHTML.innerHTML += " " +  adjustedAwayTeamGoals;
       
 
-
       for(i=0; i < 10000 ; i++){
-
 
         homeTeamScore = Math.floor(jStat.normal.inv( Math.random() , adjustedHomeTeamGoals , homeTeamStandardDeviation  ));
         awayTeamScore = Math.floor(jStat.normal.inv( Math.random() , adjustedAwayTeamGoals , awayTeamStandardDeviation  ));
@@ -749,14 +807,13 @@ body {
 
            draws++;
 
-
         } else if(homeTeamScore > awayTeamScore) {
 
            homeTeamVictories++;
 
         } else {
 
-         awayTeamVictories++;
+          awayTeamVictories++;
 
         }
 
@@ -768,6 +825,27 @@ body {
       homeTeamOdd.innerHTML += (100/ ((homeTeamVictories/10000) * 100)).toFixed(2);
       drawOdd.innerHTML += (100/ ((draws/10000 * 100)) ).toFixed(2);
       awayTeamOdd.innerHTML += (100/ ((awayTeamVictories/10000) * 100)).toFixed(2);
+
+
+
+      window.onload = function(){
+        document.getElementById('homeTeamAvgGoalContent').style.width = <?php echo ($homeTeamAvgGoalsFor/3)*100 ?> +'%';
+        document.getElementById('homeTeamAvgGoalAgainstContent').style.width = <?php echo ($homeTeamAvgGoalsAgainst/2.5)*100 ?> + '%';
+
+        document.getElementById('awayTeamAvgGoalAgainstContent').style.width = <?php echo ($awayTeamAvgGoalsAgainst/2.5)*100 ?> + '%';
+        document.getElementById('awayTeamAvgGoalAgainstContent').style.width = <?php echo ($awayTeamAvgGoalsAgainst/2.5)*100 ?> + '%';
+
+
+
+          document.getElementById('homeTeamVictoryRate').innerHTML = ((homeTeamVictories/10000) * 100).toFixed(2) + '%';
+          document.getElementById('homeTeamVictoryRateContent').style.width =  ((homeTeamVictories/10000) * 100).toFixed(2) + '%';
+
+          document.getElementById('awayTeamVictoryRate').innerHTML = ((awayTeamVictories/10000) * 100).toFixed(2) + '%';
+          document.getElementById('awayTeamVictoryRateContent').style.width = ((awayTeamVictories/10000) * 100).toFixed(2) + '%';
+
+      
+
+      }
 
 
 

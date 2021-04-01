@@ -8,6 +8,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -28,6 +31,8 @@ body{
   background: rgb(0,0,0,0.55);
 
   font-size : 1vw;
+
+  font-family: 'Righteous', cursive;
 }
 
 
@@ -277,7 +282,7 @@ body{
     align-items: center;
     justify-content: center;
   border-radius: 10px;
-  font-size: 1.5vw;
+  font-size: 1.75vw;
 
    }
 

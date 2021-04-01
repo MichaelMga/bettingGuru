@@ -11,6 +11,16 @@
 
 
 
+<style>
+
+
+body{
+
+  color: blue;
+}
+  </style>
+
+
 
 <div id="gameListDiv">
 
