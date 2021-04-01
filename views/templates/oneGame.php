@@ -8,6 +8,7 @@ body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 11s ease infinite;
+    transition: 2s;
 }
 
 @keyframes gradient {
@@ -86,9 +87,11 @@ body {
 
       #rightDiv{
 
-        height: 80%;
+    
 
-        width: 60%;
+        height: 87.5%;
+
+        width: 87.5%;
 
         display: flex;
 
@@ -100,17 +103,21 @@ body {
 
         background:rgb(255,255,255,0.1);
 
+        margin-top: 2.5%;
+        
+
 
      }
 
 
      #rightDivTop{
         width: 100%;
-        height:60%;
+        height:50%;
         display: flex;
         flex-direction: row; 
         justify-content: space-around; 
         align-items: center;
+        position:relative;
      }
 
      .teamLogo{
@@ -137,7 +144,7 @@ body {
 
      .teamLogoImg{
 
-         height:85%;
+         height:100%;
          width:auto
      }
 
@@ -158,7 +165,7 @@ body {
      #rightDivBottom{
 
         width: 100%;
-        height:40%;
+        height:50%;
         display: flex;
         flex-direction: column;
      }
@@ -304,7 +311,7 @@ body {
          width:50%;
          align-items:center;
          justify-content:center;
-         font-size: 0.8vw;
+         font-size: 0.85vw;
 
      }
 
@@ -321,10 +328,46 @@ body {
          
          height:40%;
          width:100%;
-         background: orange;
-         border-radius: 2px;
+         background: rgb(255,255,255,0.1);
+         border-radius: 3.5px;
+         display:flex;
+         justify-content:flex-start;
+         align-items:center;
 
      }
+
+     .barContentValueA{
+
+         height: 70%;
+         width: 45%;
+         background:  #ffd633;
+         margin-left: 0.8%;
+         border-radius: 3px;
+
+     }
+
+     
+     .barContentValueB{
+
+         height: 70%;
+         width: 65%;
+         background:  red;
+         margin-left: 0.8%;
+         border-radius: 3px;
+
+     }
+
+       .barContentValueC{
+
+         height: 70%;
+         width: 80%;
+         background:  blue;
+         margin-left: 0.8%;
+         border-radius: 3px;
+
+     }
+     
+     
 
 
      .teamLogoBAA{
@@ -354,13 +397,49 @@ body {
          left : 5%;
          height:40%;
          width:10%;
-         font-size:0.6vw;
+         font-size:0.75vw;
          display:flex;
          justify-content:center;
          align-items:center;
      }
 
      
+
+
+
+ #notificationDiv{
+
+     position:absolute;
+     top: 12.5%;
+     right:5%;
+     background:red;
+     height: 20%;
+     width: 30%;
+     z-index: 6;
+     border-radius: 10px;
+     background: rgb(255,255,255,0.96);
+     display: flex;
+     justify-content: space-around;
+     align-items:center;
+     display:none;
+
+ }
+
+
+
+
+
+#backButton{
+
+    height: 15%;
+    width: 7%;
+    background: rgb(255,255,255,0.15);
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    border-radius: 7px;
+
+}
 
 
 
@@ -373,6 +452,16 @@ body {
 
 
 
+<div id="notificationDiv">
+
+  <div  id="notificationDivA"></div>
+
+  <div  id="notificationDivB"></div>
+
+
+</div>
+
+
 
 
 
@@ -382,6 +471,11 @@ body {
       <div id='rightDiv'>
 
           <div id='rightDivTop'>
+
+            <div id='backButton'>
+
+            
+            </div>
 
               <div class='teamLogo'>
                      <div class='teamLogoA'>                          
@@ -417,28 +511,37 @@ body {
                           <div class='barContent' id='rightDivBottom1AA'>
                                 <div class='barContentA'>
                                       <div class='barContentAA'>
-                                         avg.possession <span style='opacity:0.7'>67%</style>
+                                         avg.home goals for <span id='homeTeamAvgGoalSpan' style='opacity:0.7'>67%</style>
                                       </div>
                                 </div>
-                                <div class='barContentB'></div>
+                                <div class='barContentB'>
+                                    <div class="barContentValueA">
+                                    </div>
+                                </div>
                           </div>
                           <div class='barContent' id='rightDivBottom1AB'>
                                 <div class='barContentA'>                                      
                                 
                                       <div class='barContentAA'>
-                                         avg.goals scored : 1.5 /game
+                                         avg.home goals for rate : <span id='homeTeamAvgHomeGoalSpan'> 1.5 </span> goal/game
                                       </div>
 
                                 </div>
-                                <div class='barContentB'></div>
+                                <div class='barContentB'>
+                                   <div class="barContentValueB">
+                                    </div>
+                                </div>
                           </div>
                           <div class='barContent' id='rightDivBottom1AC'>
                                 <div class='barContentA'>                                                 
                                     <div class='barContentAA'>
-                                        victory rate <span style='opacity:0.7'>35%</style>
+                                        victory rate <span style='opacity:0.7'><span id='homeTeamVictoryRate'>35%</span></style>
                                     </div>
                                   </div>
-                                <div class='barContentB'></div>
+                                  <div class='barContentB'>
+                                   <div class="barContentValueC">
+                                    </div>
+                                </div>
                           </div>
                         
                       </div>
@@ -448,31 +551,37 @@ body {
                                 
                                         <div class='barContentAA'>                                         
                                         
-                                            avg.possession <span style='opacity:0.7'>23%</style>
+                                            avg.possession <span style='opacity:0.7'><span id='awayTeamAvgGoalSpan'>35%</span></style>
 
                                         </div>
 
                                 </div>
-                                <div class='barContentB'></div>
+                                <div class='barContentB'>
+                                   <div class="barContentValueA">
+                                    </div>
+                                </div>
                           </div>
                           <div class='barContent' id='rightDivBottom1BB'>
                                 <div class='barContentA'>                                      
                                     <div class='barContentAA'>                                                
-                                    
-                                          avg.goals scored : <span style='opacity:0.7'>1.5/game</style>
-
+                                          avg.goals scored : <span style='opacity:0.7'><span id='awayTeamAvgAwayGoalSpan'>35%</span>/game</style>
                                     </div>
                                 </div>
                                 <div class='barContentB'>
-                                </div>     
+                                   <div class="barContentValueB">
+                                    </div>
+                                </div>
                            </div>
                           <div class='barContent'id='rightDivBottom1BC'>
                                 <div class='barContentA'>                                     
                                         <div class='barContentAA'>                                       
-                                             victory rate <span style='opacity:0.7'> 25%</style>
+                                             victory rate <span style='opacity:0.7'> <span id='awayTeamVictoryRate'>35%</span></style>
                                         </div> 
                                   </div>
-                                <div class='barContentB'></div>     
+                                  <div class='barContentB'>
+                                   <div class="barContentValueC">
+                                    </div>
+                                </div> 
                           </div>
                       </div>
                      
@@ -659,6 +768,7 @@ body {
       homeTeamOdd.innerHTML += (100/ ((homeTeamVictories/10000) * 100)).toFixed(2);
       drawOdd.innerHTML += (100/ ((draws/10000 * 100)) ).toFixed(2);
       awayTeamOdd.innerHTML += (100/ ((awayTeamVictories/10000) * 100)).toFixed(2);
+
 
 
 

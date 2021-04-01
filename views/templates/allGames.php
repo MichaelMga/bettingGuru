@@ -9,7 +9,6 @@
   ?>
 
 
-<h3>Semaine : <span id='weekSpan'></span> </h3>
 
 
 

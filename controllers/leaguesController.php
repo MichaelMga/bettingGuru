@@ -156,6 +156,9 @@ function seeOneGame($gameId){
         $teamStats =  json_decode(json_decode(getTeamStats( $leagueId , $teamId)))->{"api"}->{"statistics"};
 
 
+        print_r($teamStats);
+
+
 
         $teamAvgGoalsFor = $teamStats->{"goalsAvg"}->{"goalsFor"}->{"total"};
 
