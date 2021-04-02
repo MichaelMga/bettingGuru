@@ -312,7 +312,7 @@ body{
    justify-content: center;
    align-items: flex-end;
    padding-bottom: 7.5%;
-   font-size: 1vw;
+   font-size: 0.75vw;
 
  }
 

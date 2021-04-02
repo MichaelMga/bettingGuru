@@ -23,7 +23,7 @@ body{
 
 .infoDivText{
 
-   font-size: 1vw;
+   font-size: 0.75vw;
    display: flex;
    justify-content: flex-end;
    align-items:center;
