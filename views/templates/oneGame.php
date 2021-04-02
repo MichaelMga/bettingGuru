@@ -308,10 +308,11 @@ body {
 
      .barContentAA{
          height:70%;
-         width:90%;
+         width:100%;
          align-items:center;
          justify-content:center;
          font-size: 0.85vw;
+         opacity: 0.85;
 
      }
 
@@ -570,7 +571,7 @@ body {
                           <div class='barContent' id='rightDivBottom1AA'>
                                 <div class='barContentA'>
                                       <div class='barContentAA'>
-                                         avg.home team goals for : <span id='homeTeamAvgGoalSpan' style='opacity:0.7'> <?php echo $homeTeamAvgGoalsFor ?></style>
+                                         avg.home team goals for : <span id='homeTeamAvgGoalSpan'> <?php echo $homeTeamAvgGoalsFor ?>/game
                                       </div>
                                 </div>
                                 <div class='barContentB'>
@@ -582,7 +583,7 @@ body {
                                 <div class='barContentA'>                                      
                                 
                                       <div class='barContentAA'>
-                                         avg.home team goals against : <span id='homeTeamAvgGoalAgainst'> <?php echo $homeTeamAvgGoalsAgainst ?> </span>
+                                         avg.home team goals against : <span id='homeTeamAvgGoalAgainst'> <?php echo $homeTeamAvgGoalsAgainst ?>/game </span>
                                       </div>
 
                                 </div>
@@ -594,7 +595,7 @@ body {
                           <div class='barContent' id='rightDivBottom1AC'>
                                 <div class='barContentA'>                                                 
                                     <div class='barContentAA'>
-                                        Simulation victory rate : <span style='opacity:0.7'><span id='homeTeamVictoryRate'></span> <span class='simulationSpan'> (10 000 simulated games)</span>
+                                        Simulation victory rate : <span><span id='homeTeamVictoryRate'></span> <span class='simulationSpan'> (10 000 simulated games)</span>
                                     </div>
                                   </div>
                                   <div class='barContentB'>
@@ -610,7 +611,7 @@ body {
                                 
                                         <div class='barContentAA'>                                         
                                         
-                                            away team avg.goals for : <span style='opacity:0.7'><span id='awayTeamAvgGoalSpan'><?php echo $awayTeamAvgGoalsFor ?></span></style>
+                                            away team avg.goals for : <span><span id='awayTeamAvgGoalSpan'><?php echo $awayTeamAvgGoalsFor ?>/game</span></style>
 
                                         </div>
 
@@ -623,7 +624,7 @@ body {
                           <div class='barContent' id='rightDivBottom1BB'>
                                 <div class='barContentA'>                                      
                                     <div class='barContentAA'>                                                
-                                       away team avg.goals against :  <span style='opacity:0.7'><span id='awayTeamAvgGoalSpan'><?php echo $awayTeamAvgGoalsAgainst ?></span>/game</style>
+                                       away team avg.goals against :  <span><span id='awayTeamAvgGoalSpan'><?php echo $awayTeamAvgGoalsAgainst ?></span>/game</style>
                                     </div>
                                 </div>
                                 <div class='barContentB'>
@@ -634,7 +635,7 @@ body {
                           <div class='barContent'id='rightDivBottom1BC'>
                                 <div class='barContentA'>                                     
                                         <div class='barContentAA'>                                       
-                                        Simulation victory rate : <span style='opacity:0.7'><span id='awayTeamVictoryRate'></span> <span class='simulationSpan'> (10 000 simulated games)</span>
+                                        Simulation victory rate : <span><span id='awayTeamVictoryRate'></span> <span class='simulationSpan'> (10 000 simulated games)</span>
                                         </div> 
                                   </div>
                                   <div class='barContentB'>

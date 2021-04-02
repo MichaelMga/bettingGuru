@@ -278,11 +278,11 @@ body{
     width: 80%;
     background: rgb(255,255,255,0.15);
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-  border-radius: 10px;
-  font-size: 1.75vw;
+    justify-content: space-around;
+    border-radius: 10px;
+    font-size: 1.65vw;
 
    }
 
@@ -306,13 +306,13 @@ body{
  }
 
  #championshipInfoDivAB{
-  height: 70%;
-  width: 100%;
-  display:flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 7.5%;
-  font-size: 0.85vw;
+   height: 70%;
+   width: 100%;
+   display:flex;
+   justify-content: center;
+   align-items: flex-end;
+   padding-bottom: 7.5%;
+   font-size: 1vw;
 
  }
 

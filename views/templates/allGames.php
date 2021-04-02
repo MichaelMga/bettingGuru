@@ -18,6 +18,18 @@ body{
 
   color: blue;
 }
+
+
+
+.infoDivText{
+
+   font-size: 1vw;
+   display: flex;
+   justify-content: flex-end;
+   align-items:center;
+}
+
+
   </style>
 
 
@@ -52,8 +64,8 @@ body{
 
   </div>
 
-  <div id='championshipInfoDivAB'>
-   9th
+  <div id='championshipInfoDivAB' class="infoDivText">
+   31th
 
   </div>
 </div>
@@ -63,7 +75,7 @@ body{
 
   </div>
 
-  <div id='championshipInfoDivAB'>
+  <div id='avgGoalsStats' class="infoDivText">
     2.47 goals/game
 
   </div>
@@ -71,11 +83,11 @@ body{
 
 <div id='championshipInfoDivA'>
   <div id='championshipInfoDivAA'>
-    <div id='championshipInfoDivAAA'><img class="topImg" src="./img/up.png" alt=""></div>
+    <div id='championshipInfoDivAAA'><img class="topImg" src="./img/up.png" ></div>
 
   </div>
 
-  <div id='championshipInfoDivAB'>
+  <div id='1stTeamStats' class="infoDivText">
   1st: Lille
 
   
@@ -84,11 +96,11 @@ body{
 
    <div id='championshipInfoDivA'>
   <div id='championshipInfoDivAA'>
-    <div id='championshipInfoDivAAA'><img class="topImg" src="./img/ball.png" alt=""></div>
+    <div id='championshipInfoDivAAA'><img class="topImg" src="./img/ball.png"></div>
 
   </div>
 
-  <div id='championshipInfoDivAB'>
+  <div id='1stScorersStats' class="infoDivText">
     1st scorers : Lille 
 
   </div>
@@ -101,7 +113,7 @@ body{
 
   </div>
 
-  <div id='championshipInfoDivAB'>
+  <div id='1stDefenseStats' class="infoDivText">
   1st defense : Lille 
   </div>
 </div>
@@ -243,7 +255,76 @@ body{
 
     //weekSpan.innerHTML = currentWeek;
 
+    //avg goals stats
+ 
+ 
+    if(<?php echo $championshipId ?> == 2664){
 
+       //statistic
+
+       document.getElementById("avgGoalsStats").innerHTML = "2.69 avg.goals / game";
+       //1st team
+       document.getElementById("1stTeamStats").innerHTML = "1st team : PSG";
+       //1st scorer
+       document.getElementById("1stScorersStats").innerHTML = "Top Scorer : PSG";
+       //1st defense
+       document.getElementById("1stDefenseStats").innerHTML = "Top defense : Lille";
+
+
+
+     } else if(<?php echo $championshipId ?> == 2790){
+
+      //statistic
+       document.getElementById("avgGoalsStats").innerHTML = "2.62 avg.goals / game";
+       //1st team
+       document.getElementById("1stTeamStats").innerHTML = "1st team : Man.City";
+       //1st scorer
+       document.getElementById("1stScorersStats").innerHTML = "Top Scorer : Man.City";
+       //1st defense
+       document.getElementById("1stDefenseStats").innerHTML = "Top defense : Man.City";
+
+
+        
+
+
+     } else if(<?php echo $championshipId ?> == 2833){
+
+                //statistic
+       document.getElementById("avgGoalsStats").innerHTML = "2.48 avg.goals / game";
+       //1st team
+       document.getElementById("1stTeamStats").innerHTML = "1st team : Atl.Madrid";
+       //1st scorer
+       document.getElementById("1stScorersStats").innerHTML = "Top Scorer : Barcelona";
+       //1st defense
+       document.getElementById("1stDefenseStats").innerHTML = "Top defense : Atl.Madrid";
+
+      
+
+     } else if(<?php echo $championshipId ?> == 2755){   
+       
+       //statistic
+       document.getElementById("avgGoalsStats").innerHTML = "3.02 avg.goals / game";
+       //1st team
+       document.getElementById("1stTeamStats").innerHTML = "1st team : Bay.Munich";
+       //1st scorer
+       document.getElementById("1stScorersStats").innerHTML = "Top Scorer : Bay.Munich";
+       //1st defense
+       document.getElementById("1stDefenseStats").innerHTML = "Top defense : Leipzig";
+
+
+     } else if(<?php echo $championshipId ?> == 2857){
+         
+        //statistic
+       document.getElementById("avgGoalsStats").innerHTML = "3.01 avg.goals / game";
+       //1st team
+       document.getElementById("1stTeamStats").innerHTML = "1st team : Int.Milan";
+       //1st scorer
+       document.getElementById("1stScorersStats").innerHTML = "Top Scorer : Int.Milan";
+       //1st defense
+       document.getElementById("1stDefenseStats").innerHTML = "Top defense : Juventus";
+
+
+    }
 
 </script>
 
